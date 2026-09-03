@@ -1,32 +1,32 @@
-using System.Text;
 using AmongUs.GameOptions;
-using HarmonyLib;
-using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
-using MiraAPI.Networking;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
-using MiraAPI.Utilities;
-using Reactor.Networking.Attributes;
-using Reactor.Utilities;
-using Reactor.Utilities.Extensions;
 using TownOfUs.Interfaces;
 using TownOfUs.Modifiers;
-using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Neutral;
-using TownOfUs.Modules;
-using TownOfUs.Modules.Components;
 using TownOfUs.Modules.Wiki;
 using TownOfUs.Extensions;
-using TownOfUs.Networking;
 using TownOfUs.Utilities;
 using MiraAPI.Utilities.Assets;
 using TownOfUs.Assets;
 using TownOfUs.Options.Roles.Neutral;
-using TownOfUs.Roles.Crewmate;
 using UnityEngine;
-using Il2CppInterop.Runtime.InteropTypes.Arrays;
+// using System.Text;
+// using Il2CppInterop.Runtime.InteropTypes.Arrays;
+// using TownOfUs.Roles.Crewmate;
+// using TownOfUs.Networking;
+// using TownOfUs.Modules;
+// using TownOfUs.Modules.Components;
+// using TownOfUs.Modifiers.Crewmate;
+// using MiraAPI.Utilities;
+// using Reactor.Networking.Attributes;
+// using Reactor.Utilities;
+// using Reactor.Utilities.Extensions;
+// using MiraAPI.Networking;
+// using HarmonyLib;
+// using Il2CppInterop.Runtime.Attributes;
 
 namespace TownOfUs.Roles.Neutral;
 
@@ -167,8 +167,7 @@ public sealed class WorkaholicRole(IntPtr cppPtr)
         }
         if (!_tasksAdded && Player.myTasks != null && Player.myTasks.Count > 0)
         {
-            AddExtraTasks();
-            _tasksAdded = true;
+            _tasksAdded = AddExtraTasks();
         }
 
         CheckTaskCompletion();
@@ -184,10 +183,10 @@ public sealed class WorkaholicRole(IntPtr cppPtr)
         }
     }
 
-    private void AddExtraTasks()
+    private bool AddExtraTasks()
     {
-        if (Player?.Data?.Tasks == null)
-            return;
+        if (Player?.Data?.Tasks == null || Player.Data.Tasks.Count == 0)
+            return false;
 
         var tasks = Player.Data.Tasks;
 
@@ -218,6 +217,7 @@ public sealed class WorkaholicRole(IntPtr cppPtr)
             Player.myTasks.Add(task);
             tasks.Add(CreateTaskInfo(task.Id));
         }
+        return true;
     }
 
     private static NetworkedPlayerInfo.TaskInfo CreateTaskInfo(uint id)

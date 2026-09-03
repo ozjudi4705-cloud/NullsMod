@@ -10,3 +10,4 @@
 /Users/oziahscourtney/Documents/Projects/NullsMod/obj/Debug/net6.0/refint/NullsMod.dll
 /Users/oziahscourtney/Documents/Projects/NullsMod/obj/Debug/net6.0/NullsMod.pdb
 /Users/oziahscourtney/Documents/Projects/NullsMod/obj/Debug/net6.0/ref/NullsMod.dll
+/Users/oziahscourtney/Documents/Projects/NullsMod/obj/Debug/net6.0/NullsMod.sourcelink.json
