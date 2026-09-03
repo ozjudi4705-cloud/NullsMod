@@ -1,4 +1,5 @@
-> [!NOTE]
+> [!DISCLAIMER]
+> This mod was created with the help of AI as a tool, all art and assets are and will be made by HUMANS
 > This repo is an addon of [Town of Us Mira]([https://github.com/AU-Avengers/Town-Of-Us-Reactivated](https://github.com/AU-Avengers/TOU-Mira)) and is currently under development, expect bugs.\
 > This mod is ONLY available on PC Among Us.
 
