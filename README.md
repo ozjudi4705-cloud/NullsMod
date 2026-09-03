@@ -1,11 +1,10 @@
 > [!NOTE]
-> This repo is a rewrite and redo of [Town of Us Reactivated](https://github.com/AU-Avengers/Town-Of-Us-Reactivated) and is under constant development, expect bugs.\
-> Reactivated will still getting updated, but will not receive major content updates.\
-> This mod is ONLY available on PC and Android Among Us and is NOT host only either, please do not ask for a port or a rewrite.
+> This repo is an addon of [Town of Us Mira]([https://github.com/AU-Avengers/Town-Of-Us-Reactivated](https://github.com/AU-Avengers/TOU-Mira)) and is currently under development, expect bugs.\
+> This mod is ONLY available on PC Among Us.
 
 -----------------------
-
-<div align="center">
+> I put LOGO here when its created ;)
+<!-- <div align="center">
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Logo.png" alt="Town of Us Mira"/>
   <p>Town Of Us Mira</p>
   <a href="https://store.steampowered.com/app/945360/Among_Us"> <img alt="Latest AU Version" src="https://badgen.net/static/AmongUs/2026.3.31/yellow"></a>
@@ -13,9 +12,7 @@
   <a href="https://github.com/AU-Avengers/TOU-Mira/releases"> <img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/AU-Avengers/TOU-Mira/total"></a>
   <a href="https://discord.gg/ugyc4EVUYZ"> <img alt="Mod Discord" src="https://img.shields.io/discord/890249154402586734.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2"></a>
 </div>
-<br/>
-
-An [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod based on Town of Salem, designed to be a rewrite and overhaul of Town of Us Reactivated!
+<br/> -->
 
 -----------------------
 
@@ -35,18 +32,14 @@ An [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod based on T
 
 - [**Contents**](#contents)
 - [**Releases**](#releases)
-- [**Changelogs**](https://au-avengers.github.io/docs.toum.gg/blog)
-- [**Installation**](https://au-avengers.github.io/docs.toum.gg/docs/install/intro)
-  - [Windows Guides (Epic, Itch, MS Store, Steam)](https://au-avengers.github.io/docs.toum.gg/docs/category/windows-install)
-  - [Linux Guides (Epic, Itch, Steam)](https://au-avengers.github.io/docs.toum.gg/docs/category/linux--steam-deck-install)
-- [**Mod Info**](https://au-avengers.github.io/docs.toum.gg/)
 - [**Credits & Resources**](https://github.com/AU-Avengers/TOU-Mira/wiki/Credits)
 - [**License**](#license)
 - [**Copyright**](#copyright)
 
 -----------------------
+- I put role icons here :3
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewAfterlife.png" align="center" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/afterlife/Haunter"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Haunter.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewInvest.png" align="center" />
@@ -185,7 +178,7 @@ An [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod based on T
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Sixth%20Sense"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/SixthSense.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Sleuth"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Sleuth.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Tiebreaker"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Tiebreaker.png" /></a>
-</p>
+</p> -->
 
 -----------------------
 
@@ -193,84 +186,17 @@ An [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod based on T
 
 **Disclaimer: The mod is *not* guaranteed to work on the latest versions of Among Us when the game updates.**
 
-**Note: Due to differing releases on PC and Android, any version that has an x in its version means that it works for that minor release for both platforms.**
-
 | Among Us          | Mod Version | Download Link                                                           |
 |-------------------|-------------|-------------------------------------------------------------------------|
-| 17.4.x            | 1.7.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.7.1)  |
-| 17.3.x and 17.4.x | 1.7.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.7.0)  |
-| 17.4.x            | 1.6.3       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.6.3)  |
-| 17.3.x            | 1.6.2       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.6.2)  |
-| 17.3.x            | 1.6.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.6.1)  |
-| 17.3.x            | 1.6.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.6.0)  |
-| 17.2.x            | 1.5.9       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.5.9)  |
-| 17.1 and 17.2.1   | 1.5.4       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.5.4)  |
-| 17.1.x            | 1.5.3       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.5.3)  |
-| 17.1.x            | 1.5.2       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.5.2)  |
-| 17.1.x            | 1.5.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.5.1)  |
-| 17.1.x            | 1.5.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.5.0)  |
-| 17.1.x            | 1.4.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/1.4.1)  |
-| 17.1.x            | 1.4.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.4.0) |
-| 17.0.1            | 1.3.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.3.1) |
-| 17.0.0            | 1.3.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.3.0) |
-| 17.0.0            | 1.2.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.2.1) |
-| 17.0.0            | 1.2.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.2.0) |
-| 16.0.5            | 1.1.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.1.1) |
-| 16.0.5            | 1.1.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.1.0) |
-| 16.0.5            | 1.0.5       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.0.5) |
-| 16.0.5            | 1.0.2       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.0.2) |
-| 16.0.5            | 1.0.1       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.0.1) |
-| 16.0.5            | 1.0.0       | [Download](https://github.com/AU-Avengers/TOU-Mira/releases/tag/v1.0.0) |
-
------------------------
-
-# Actively Supported Languages
-
-All languages are added via our [Weblate](https://weblate.duikbo.at/projects/town-of-us-mira/) instance. If you want to contribute to the project please let us know in the discord server!
-
-|       Language        |                                                                                Overall Progress                                                                                 |
-|:---------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|     All Languages     |      <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/svg-badge.svg" alt="Translation status" /></a>      |
-|  Simplified Chinese   | <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/zh_Hans/svg-badge.svg" alt="Translation status" /></a> |
-|  Traditional Chinese  | <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/zh_Hant/svg-badge.svg" alt="Translation status" /></a> |
-|         Dutch         |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/nl/svg-badge.svg" alt="Translation status" /></a>    |
-|       Filipino        | <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/fil_PH/svg-badge.svg" alt="Translation status" /></a>  |
-|        French         |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/fr/svg-badge.svg" alt="Translation status" /></a>    |
-|        German         |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/de/svg-badge.svg" alt="Translation status" /></a>    |
-|         Irish         |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/ga/svg-badge.svg" alt="Translation status" /></a>    |
-|        Italian        |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/it/svg-badge.svg" alt="Translation status" /></a>    |
-|       Japanese        |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/ja/svg-badge.svg" alt="Translation status" /></a>    |
-|        Korean         |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/ko/svg-badge.svg" alt="Translation status" /></a>    |
-|      Lithuanian       |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/lt/svg-badge.svg" alt="Translation status" /></a>    |
-|        Polish         |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/pl/svg-badge.svg" alt="Translation status" /></a>    |
-|  Portuguese (Brazil)  |  <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/pt_BR/svg-badge.svg" alt="Translation status" /></a>  |
-| Portuguese (Portugal) |  <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/pt_PT/svg-badge.svg" alt="Translation status" /></a>  |
-|        Russian        |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/ru/svg-badge.svg" alt="Translation status" /></a>    |
-|        Spanish        |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/es/svg-badge.svg" alt="Translation status" /></a>    |
-|    Spanish (LATAM)    | <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/es_419/svg-badge.svg" alt="Translation status" /></a>  |
-|        Swedish        |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/sv/svg-badge.svg" alt="Translation status" /></a>    |
-|        Turkish        |   <a href="https://weblate.duikbo.at/engage/town-of-us-mira/"><img src="https://weblate.duikbo.at/widget/town-of-us-mira/-/tr/svg-badge.svg" alt="Translation status" /></a>    |
-
+| 17.4.             | 1.0.0      | [Download](https://www.youtube.com/watch?v=E4WlUXrJgy4)  |
 -----------------------
 
 # Contributions & Credits
 
 [MiraAPI](https://github.com/All-Of-Us-Mods/MiraAPI) - The primary framework of the mod\
-[Zeo666](https://github.com/Zeo666) - For implementing the Game Timer mechanic.\
-[le killer](https://github.com/lekillerdesgames) - For implementing the split faction chat.\
-[AlchlcDvl](https://github.com/AlchlcDvl) - For implementing the Spectator feature.\
-[xChipseq](https://github.com/xChipseq) - For implementing the wiki hyperlinks feature for chat.\
-[Amber](https://github.com/Nix-main) - For helping on the translation system.\
-[IdkImNeil](https://github.com/neilmjain) - For implementing the /rules system.\
-[VoidicChaos](https://github.com/VoidicChaos) - For implementing the /kick and /ban commands.\
-[DivaniNL](https://github.com/DivaniNL) - For implementing extended details for misguesses.\
-[rewalo](https://github.com/rewalo) - For implementing host keybinds, improving anticheat, as well as adding Time Lord, Sentry and Parasite.\
-[ItzLoonie](https://github.com/ItzLoonie) - For the original implementations of the reworked Seer, Monarch, and Spellslinger roles. Also ported Deadly Quota and Circumvent modifiers.\
-[Endless Host Roles](https://github.com/Gurge44/EndlessHostRoles) - For the original Deadly Quota and Circumvent modifiers.\
-[Tommy-XL](https://github.com/Tommy-XL) - For the dlekS reimplementation from [Unlock dlekS](https://github.com/Tommy-XL/Unlock-dlekS-ehT).\
-[Launchpad Reloaded](https://github.com/All-Of-Us-Mods/LaunchpadReloaded) - For the original Discord Status patch.\
-[D1GQ](https://github.com/D1GQ) - For the original Splash Intro patch used in [Better Among Us](https://github.com/D1GQ/BetterAmongUs).\
-[Maxi0fc](https://github.com/Maxi0fc) - For the original implementation of [AutoRejoin](https://github.com/Maxi0fc/AutoRejoin) and also the Role List hover feature.
+[DivaniNL](https://github.com/DivaniNL) - For some of the extra task code I borrowed.\
+[Mehzz](https://www.youtube.com/watch?v=E4WlUXrJgy4) - For a more useful version of extra task asignment.\
+[Endless Host Roles](https://github.com/Gurge44/EndlessHostRoles) - For the original Workaholic role idea.\
 
 > [!NOTE]
 > The following credits originate from the original TOU/TOUR repositories.
@@ -290,46 +216,6 @@ All languages are added via our [Weblate](https://weblate.duikbo.at/projects/tow
 [Ruiner](https://github.com/ruiner189/Town-Of-Us-Redux) - For lovers changed into a modifier and Task Tracking.\
 [Term](https://www.twitch.tv/termboii) - For creating Transporter, Medium, Blackmailer, Plaguebearer, Sleuth, Multitasker.\
 [BryBry16](https://github.com/Brybry16/BetterPolus) - For the code used for Better Polus.
-
------------------------
-
-# Mod Compatibility
-
-> [!NOTE]
-> If you wish to make an Extension Mod that builds on top of TOU Mira, you may look at [MiraAPI](https://github.com/All-Of-Us-Mods/MiraAPI)'s Example Mod or the official [Example Mod](https://github.com/AU-Avengers/TouExtensionExample).
-
-**Disclaimer: This mod compatibility list can and will change over time.**
-
-If a mod is missing here and is a role/modifiers mod, it likely won't work unless it is built with [MiraAPI](https://github.com/All-Of-Us-Mods/MiraAPI)!
-
-|                                    Mod                                    | Support | Notes                                                                            |
-|:-------------------------------------------------------------------------:|:-------:|:---------------------------------------------------------------------------------|
-|         [Localize Us!](https://github.com/AU-Avengers/LocalizeUs)         |    ✅    | TOU Mira only has a few extra translations for this.                             |
-|        [Submerged](https://github.com/SubmergedAmongUs/Submerged)         |    ✅    |                                                                                  |
-|       [Level Impostor](https://github.com/DigiWorm0/LevelImposter)        |    ✅    | Custom Door Types cannot be changed.                                             |
-|             [NewMod](https://github.com/CallOfCreator/NewMod)             |    ✅    | Runs fine, but NewMod role icons are missing.<br/>Wiki is not fully implemented. |
-| [Launchpad Reloaded](https://github.com/All-Of-Us-Mods/LaunchpadReloaded) |   ⚠️    | Wiki is not fully implemented.                                                   |
-
-The mods below have **not** been completed/ported just yet, but will work with TOU Mira in mind.
-
-|                                       Mod                                        |     Mod Type      | Description                                                                                      |
-|:--------------------------------------------------------------------------------:|:-----------------:|:-------------------------------------------------------------------------------------------------|
-| [Town of Us Edited: Mira](https://github.com/lekillerdesgames/Town-Of-Us-Edited) | Roles / Modifiers | The TOU-Edited mod, but improved and ported to Mira, adding new roles, modifiers, and mechanics! |
-|            [Localize Us!](https://github.com/AU-Avengers/LocalizeUs)             |   Miscellaneous   | A mod that adds extra languages to the game, such as Polish, Swedish, and Turkish!               |
-
-The mods below are designed to fully work with TOU Mira, often adding new roles and modifiers or extra functionality!
-
-|                              Extension Mod                              |     Mod Type      | Description                                                                                                                                                                           |
-|:-----------------------------------------------------------------------:|:-----------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         [Chaos Tokens](https://github.com/xChipseq/ChaosTokens)         |   Game Feature    | A mod that adds gambling to TOU! Each round, players can get one, two, or no tokens, which enhances the chaos in the game. Each roll may give a positive, negative, or benign effect. |
-|          [Game Tweaks](https://github.com/xChipseq/GameTweaks)          |   Game Feature    | A mod that adds new gimmicks to your TOU games, ranging from gameplay changes to absolute insanity. Yes, they can be randomized too.                                                  |
-| [Divani Mods](https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn)  | Roles / Modifiers | A mod that adds new roles and modifiers.                                                                                                                                              |
-| [Roles Extension](https://github.com/rewalo/TownOfUsMiraRolesExtension) | Roles / Modifiers | A mod that adds new roles and modifiers, primarily from Stellar Roles.                                                                                                                |
-|         [Town of Extra](https://github.com/Mehzxzz/TownOfExtra)         | Roles / Modifiers | A mod that adds new roles and modifiers.                                                                                                                                              |
-|        [Perfect Comms](https://github.com/artriy/Perfect-Comms)         |   Miscellaneous   | A mod that adds a built-in voice chat system to Among Us, with special support for TOU roles.                                                                                         |
-|         [Mira-NotePad](https://github.com/Maxi0fc/Mira-NotePad)         |   Miscellaneous   | A client-side mod that adds a notepad that can be used in-game at any time.                                                                                                           |
-|           [NameFilter](https://github.com/Maxi0fc/NameFliter)           |   Miscellaneous   | A host-side mod that filter out slurs, offensive terms, and more from player names.                                                                                                   |
-|      [Mira Randomizer](https://github.com/VoidicChaos/Randomiser)       |   Miscellaneous   | A host-side mod that allows full randomization of the current preset!                                                                                                                 |
 
 -----------------------
 
