@@ -19,15 +19,9 @@ An [Among Us](https://store.steampowered.com/app/945360/Among_Us) mod based on T
 
 -----------------------
 
-# Key Differences with TOU Mira
+# Key Differences with NullsMod
 
-- Revamped visuals
-- New roles such as Ambassador, Ambusher, Inquisitor, Mirrorcaster
-- New modifiers such as Circumvent, Scout, Telepath, Operative
-- Localization to numerous languages (being worked on still)
-- Vanilla role support (allowing players to use vanilla roles alongside modded roles)
-- Balance changes into the mix for players to use
-- Compatibility with a handful of other role mods that run on MiraAPI.
+- I add role :)
 
 -----------------------
 
