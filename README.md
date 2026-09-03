@@ -18,14 +18,12 @@
 
 # Key Differences with NullsMod
 
-- I add role :)
+- I add role, workaholic role :)
 
 -----------------------
 
 > [!TIP]
-> Join the Town of Us [Discord](https://discord.gg/ugyc4EVUYZ) if you have any problems or want to find people to play with!\
-> Check out the mod's [wiki](https://au-avengers.github.io/docs.toum.gg) for info!
-
+> Join the Nulls [Discord]([https://discord.gg/ugyc4EVUYZ](https://discord.gg/6cXfTE4wY)) if you have any problems or suggestions for the mod!\
 -----------------------
 
 # Contents
@@ -37,7 +35,7 @@
 - [**Copyright**](#copyright)
 
 -----------------------
-- I put role icons here :3
+> I put role icons here :3
 
 <!-- <p align="center">
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewAfterlife.png" align="center" />
