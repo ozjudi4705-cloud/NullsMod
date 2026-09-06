@@ -44,9 +44,11 @@
   <a href =https://www.youtube.com/watch?v=E4WlUXrJgy4><img width="10%"
   src="https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Micromanager.png" ></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutEvil.png" />
-  <a href =https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Workaholic.png>
+  <a href =https://www.youtube.com/watch?v=E4WlUXrJgy4><img width="10%"
+  src=https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Workaholic.png>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
-  <a href="https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Shackled.png">
+  <a href=https://www.youtube.com/watch?v=E4WlUXrJgy4><img width="10%"
+  src="https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Shackled.png">
 
 <!--   
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/afterlife/Haunter"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Haunter.png" /></a>
