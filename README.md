@@ -19,7 +19,9 @@
 
 # Key Differences with NullsMod
 
-- I add role, workaholic role :)
+- I added Micromanager Crew Afterlife role
+- I added Workaholic Neutral Evil role
+- I added Shackled Universal Postmortem modifier
 
 -----------------------
 
@@ -38,8 +40,15 @@
 -----------------------
 > I put role icons here :3
 
-<!-- <p align="center">
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewAfterlife.png" align="center" />
+  <a href =https://www.youtube.com/watch?v=E4WlUXrJgy4><img width="10%"
+  src="https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Micromanager.png" ></a>
+  <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/NeutEvil.png" />
+  <a href =https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Workaholic.png>
+  <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/UniMods.png" />
+  <a href="https://github.com/ozjudi4705-cloud/NullsMod/Resources/RoleIcons/Shackled.png">
+
+<!--   
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/afterlife/Haunter"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Haunter.png" /></a>
   <img src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Groups/CrewInvest.png" align="center" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Aurial"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Aurial.png" /></a>
@@ -176,8 +185,8 @@
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Shy"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Shy.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Sixth%20Sense"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/SixthSense.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Sleuth"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Sleuth.png" /></a>
-  <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Tiebreaker"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Tiebreaker.png" /></a>
-</p> -->
+  <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Tiebreaker"><img width="10%" src="https://raw.githubusercontent.com/AU-Avengers/TOU-Mira/main/Images/Icons/Tiebreaker.png" /></a> -->
+
 
 -----------------------
 
