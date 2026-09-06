@@ -2,9 +2,9 @@
 using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
-using TownOfUs.Roles.Neutral;
+using NullsMod.Roles.Neutral;
 
-namespace TownOfUs.Options.Roles.Neutral;
+namespace NullsMod.Options.Roles.Neutral;
 
 public sealed class WorkaholicOptions : AbstractRoleOptionGroup<WorkaholicRole>
 {

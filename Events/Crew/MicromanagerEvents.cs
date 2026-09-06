@@ -11,10 +11,11 @@ using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
 using Reactor.Utilities;
 using Reactor;
-using NullsMod;
 using NullsMod.Assets;
+using NullsMod.Roles.Crewmate;
+using NullsMod.Options.Roles.Crewmate;
 
-namespace TownOfUs.Events.Crewmate;
+namespace NullsMod.Events.Crewmate;
 public static class MicromanagerEvents
 {
     [RegisterEvent]
@@ -74,7 +75,7 @@ public static class MicromanagerEvents
         }
 
         var notif = Helpers.CreateAndShowNotification(message, Color.white, new Vector3(0f, 1f, -20f),
-            spr: NullsRoleIcons.Micromanager.LoadAsset());
+            spr: NullsIcons.Micromanager.LoadAsset());
 
         notif?.AdjustNotification();
     }

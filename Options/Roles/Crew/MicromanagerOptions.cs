@@ -1,8 +1,8 @@
 using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
-using TownOfUs.Roles.Crewmate;
+using NullsMod.Roles.Crewmate;
 
-namespace TownOfUs.Options.Roles.Crewmate;
+namespace NullsMod.Options.Roles.Crewmate;
 
 public sealed class MicromanagerOptions : AbstractRoleOptionGroup<MicromanagerRole>
 {

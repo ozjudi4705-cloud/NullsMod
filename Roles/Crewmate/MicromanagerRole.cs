@@ -9,24 +9,24 @@ using MiraAPI.Modifiers;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
 using TownOfUs.Events;
-using TownOfUs.Events.Crewmate;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules.Wiki;
-using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Patches;
 using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities.Appearances;
 using TownOfUs.Utilities;
-using MiraAPI.Utilities.Assets;
 using TownOfUs.Modules;
 using TownOfUs.Assets;
-using NullsMod;
+using TownOfUs.Roles;
 using NullsMod.Assets;
+using NullsMod.Options.Roles.Crewmate;
+using NullsMod.Events.Crewmate;
 
-namespace TownOfUs.Roles.Crewmate;
+namespace NullsMod.Roles.Crewmate;
 
 public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),IWikiDiscoverable, ITownOfUsRole, IGhostRole
 {
@@ -46,8 +46,8 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
 
     public CustomRoleConfiguration Configuration => new(this)
     {
-        IconTmp = TmpSpriteUtils.CreateSpriteAsset(NullsRoleIcons.Micromanager.LoadAsset(), "TouMira.Role.Crewmate.Micromanager", 1.55f),
-        Icon = NullsRoleIcons.Micromanager,
+        IconTmp = TmpSpriteUtils.CreateSpriteAsset(NullsIcons.Micromanager.LoadAsset(), "Micromanager", 1.55f),
+        Icon = NullsIcons.Micromanager,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         TasksCountForProgress = false,
         HideSettings = false,
@@ -190,7 +190,7 @@ public void CompleteRandomCrewTask()
         $"There are no more tasks available to manage.",
         Color.white,
         new Vector3(0f, 1f, -20f),
-        spr: NullsRoleIcons.Micromanager.LoadAsset());
+        spr: NullsIcons.Micromanager.LoadAsset());
 
         warn.AdjustNotification();
         return;
@@ -230,7 +230,7 @@ public void CompleteRandomCrewTask()
         $"</color></b>",
         Color.white,
         new Vector3(0f, 1f, -20f),
-        spr: NullsRoleIcons.Micromanager.LoadAsset());
+        spr: NullsIcons.Micromanager.LoadAsset());
 
     notif.AdjustNotification();
 
@@ -454,7 +454,7 @@ public void CompleteRandomCrewTask()
                 var notif1 = Helpers.CreateAndShowNotification(
                     $"<b>{NullsColors.Micromanager.ToTextColor()}{"You are now clickable by players!"}</b></color>",
                     Color.white,
-                    new Vector3(0f, 1f, -20f), spr: NullsRoleIcons.Micromanager.LoadAsset());
+                    new Vector3(0f, 1f, -20f), spr: NullsIcons.Micromanager.LoadAsset());
                 notif1.AdjustNotification();
             }
         }

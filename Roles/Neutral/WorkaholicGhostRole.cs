@@ -1,19 +1,16 @@
-﻿using System;
-using System.Text;
-using AmongUs.GameOptions;
-using MiraAPI.GameOptions;
+﻿using MiraAPI.GameOptions;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
-using MiraAPI.Utilities;
 using TownOfUs.Utilities;
 using TownOfUs.Interfaces;
-using TownOfUs.Modules;
-using TownOfUs.Options.Roles.Neutral;
-using Il2CppInterop.Runtime.Attributes;
 using UnityEngine;
+using TownOfUs;
+using TownOfUs.Roles.Neutral;
+using NullsMod.Options.Roles.Neutral;
 
 
-namespace TownOfUs.Roles.Neutral;
+
+namespace NullsMod.Roles.Neutral;
 
 public sealed class WorkaholicGhostRole(IntPtr cppPtr)
     : NeutralGhostRole(cppPtr), IProgressTally
