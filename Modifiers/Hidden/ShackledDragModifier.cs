@@ -89,21 +89,12 @@ public sealed class ShackledDragModifier(byte bodyId) : BaseModifier
             return false;
         }
 
-        var player = PlayerControl.LocalPlayer;
-
-        if (player == null || player != Player)
-        {
-            return false;
-        }
-
-        var nearestBody = player.GetNearestDeadBody(player.MaxReportDistance / 4f);
-
-        return nearestBody == DeadBody;
+        return !PhysicsHelpers.AnythingBetween(Player.Collider, Player.Collider.bounds.center,
+            DeadBody.TruePosition, Constants.ShipAndAllObjectsMask, false);
     }
 
     public override void Update()
     {
-
         if (DeadBody == null || !DeadBody.myCollider.enabled)
         {
             Player.RemoveModifier(this);
