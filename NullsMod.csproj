@@ -44,7 +44,7 @@
                       ExcludeAssets="runtime" />
 
     <PackageReference Include="AmongUs.GameLibs.Steam"
-                      Version="2026.6.5"
+                      Version="2026.8.18"
                       PrivateAssets="all" />
   </ItemGroup>
 

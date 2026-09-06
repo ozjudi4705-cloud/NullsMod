@@ -13,6 +13,8 @@ using MiraAPI.Utilities.Assets;
 using TownOfUs.Assets;
 using TownOfUs.Options.Roles.Neutral;
 using UnityEngine;
+using NullsMod;
+using NullsMod.Assets;
 // using System.Text;
 // using Il2CppInterop.Runtime.InteropTypes.Arrays;
 // using TownOfUs.Roles.Crewmate;
@@ -37,12 +39,12 @@ public sealed class WorkaholicRole(IntPtr cppPtr)
     public string LocaleKey => "Workaholic";
     public string RoleName => "Workaholic";
     public bool IsUnlovable => true;
-    public bool IsDraftable => true;
+    // public bool IsDraftable => true;
     public bool IsGuessable => false;
     public bool FinishedTasks { get; private set; }
     public bool MetWinCon => FinishedTasks;
 
-    public Color RoleColor => TownOfUsColors.Neutral;
+    public Color RoleColor => NullsColors.Workaholic;
     public ModdedRoleTeams Team => ModdedRoleTeams.Custom;
     public RoleAlignment RoleAlignment => RoleAlignment.NeutralEvil;
     public RoleBehaviour AppearAs => RoleManager.Instance.GetRole((RoleTypes)RoleId.Get<WorkaholicRole>());
@@ -65,8 +67,9 @@ public sealed class WorkaholicRole(IntPtr cppPtr)
 
     public CustomRoleConfiguration Configuration => new(this)
     {
+        IconTmp = TmpSpriteUtils.CreateSpriteAsset(NullsRoleIcons.Workaholic.LoadAsset(), "TouMira.Role.Neutral.Workaholic", 1.45f),
         IntroSound = WorkahoilcIntro,
-        Icon = TouRoleIcons.Shifter,
+        Icon = NullsRoleIcons.Workaholic,
         OptionsScreenshot = TouBanners.NeutralRoleBanner,
         GhostRole = (RoleTypes)RoleId.Get<WorkaholicGhostRole>(),
         MaxRoleCount = 1,
