@@ -80,7 +80,7 @@ public static class MorticianEvents
         }
 
         var notification = Helpers.CreateAndShowNotification(
-            $"<b>Mortician performed an Autopsy on {target.Data.PlayerName}</b>",
+            $"<b>The <color=#{ColorUtility.ToHtmlStringRGBA(NullsColors.Mortician)}>Mortician</color> performed an Autopsy on {target.Data.PlayerName}</b>",
             Color.white,
             new Vector3(0f, 2f, -20f),
             spr: NullsIcons.MorticianAbility.LoadAsset());
