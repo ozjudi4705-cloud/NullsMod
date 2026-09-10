@@ -18,20 +18,6 @@ using UnityEngine;
 using NullsMod.Assets;
 using NullsMod.Options.Roles.Neutral;
 using NullsMod.Modifiers.Hidden;
-// using System.Text;
-// using Il2CppInterop.Runtime.InteropTypes.Arrays;
-// using TownOfUs.Roles.Crewmate;
-// using TownOfUs.Networking;
-// using TownOfUs.Modules;
-// using TownOfUs.Modules.Components;
-// using TownOfUs.Modifiers.Crewmate;
-// using MiraAPI.Utilities;
-// using Reactor.Networking.Attributes;
-// using Reactor.Utilities;
-// using Reactor.Utilities.Extensions;
-// using MiraAPI.Networking;
-// using HarmonyLib;
-// using Il2CppInterop.Runtime.Attributes;
 
 namespace NullsMod.Roles.Neutral;
 

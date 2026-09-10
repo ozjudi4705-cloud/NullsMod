@@ -1,11 +1,8 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Player;
 using MiraAPI.GameOptions;
 using MiraAPI.Utilities;
-using TownOfUs.Options.Roles.Crewmate;
-using TownOfUs.Roles.Crewmate;
 using TownOfUs.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Networking.Rpc;
