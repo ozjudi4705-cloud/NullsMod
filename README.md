@@ -205,7 +205,7 @@
 # Contributions & Credits
 
 [MiraAPI](https://github.com/All-Of-Us-Mods/MiraAPI) - The primary framework of the mod\
-[DivaniNL](https://github.com/DivaniNL) - For some of the extra task code I borrowed.\
+[DivaniNL](https://github.com/DivaniNL) - For task code and mostly for the Memento Modifier Reveal code.\
 [Mehzz](https://www.youtube.com/watch?v=E4WlUXrJgy4) - For a more useful version of extra task asignment.\
 [Endless Host Roles](https://github.com/Gurge44/EndlessHostRoles) - For the original Workaholic role idea.\
 
