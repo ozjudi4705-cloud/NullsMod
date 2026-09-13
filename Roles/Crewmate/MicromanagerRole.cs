@@ -11,6 +11,7 @@ using MiraAPI.Roles;
 using MiraAPI.Utilities;
 using MiraAPI.Utilities.Assets;
 using Reactor.Utilities;
+using TownOfUs;
 using TownOfUs.Events;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game;
@@ -20,11 +21,13 @@ using TownOfUs.Roles.Neutral;
 using TownOfUs.Utilities.Appearances;
 using TownOfUs.Utilities;
 using TownOfUs.Modules;
+using TownOfUs.Options;
 using TownOfUs.Assets;
 using TownOfUs.Roles;
 using NullsMod.Assets;
 using NullsMod.Options.Roles.Crewmate;
 using NullsMod.Events.Crewmate;
+using NullsMod.Modifiers.Hidden;
 
 namespace NullsMod.Roles.Crewmate;
 
@@ -32,7 +35,7 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
 {
     public string LocaleKey => "Micromanager";
     public string RoleName => "Micromanager";
-     public bool CompletedAllTasks => TaskStage is GhostTaskStage.CompletedTasks;
+    //  public bool CompletedAllTasks => TaskStage is GhostTaskStage.CompletedTasks;
     public bool Setup { get; set; }
     public bool Caught { get; set; }
     public bool Faded { get; set; }
@@ -51,6 +54,8 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         TasksCountForProgress = false,
         HideSettings = false,
+        CanUseVent = false,
+        GetsVentData = true,
         ShowInFreeplay = true,
         GhostRole = RoleTypes.CrewmateGhost
     };
@@ -59,6 +64,7 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
 
     public string RoleDescription => "You must Manage everyone's tasks!";
     public string RoleLongDescription => "Manage the Crew's tasks and complete their tasks for them.";
+    public string RoleMedDescriptionLocale => "";
     public string GetAdvancedDescription()
     {
         return
@@ -71,7 +77,8 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
     {
         get
         {
-        return TaskStage is GhostTaskStage.Clickable || TaskStage is GhostTaskStage.CompletedTasks;
+        return TaskStage is GhostTaskStage.Clickable;
+        // || TaskStage is GhostTaskStage.CompletedTasks;
         }
         set
         {
@@ -84,19 +91,18 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
 
     public bool CanCatch()
     {
-        if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.ImpsOnly &&
-            !PlayerControl.LocalPlayer.IsImpostorAligned())
-        {
-            return false;
-        }
+        // if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.ImpsOnly &&
+        //     !PlayerControl.LocalPlayer.IsImpostorAligned())
+        // {
+        //     return false;
+        // }
 
-        if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.NonCrew &&
-            !(PlayerControl.LocalPlayer.IsImpostorAligned() || PlayerControl.LocalPlayer.Is(RoleAlignment.NeutralKilling)
-                                                     || PlayerControl.LocalPlayer.TryGetModifier<AllianceGameModifier>(
-                                                         out var allyMod) && allyMod.GetsPunished))
-        {
-            return false;
-        }
+        // if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.NonCrew &&
+        //     !(PlayerControl.LocalPlayer.IsImpostorAligned() || PlayerControl.LocalPlayer.Is(RoleAlignment.NeutralKilling)
+        //     || PlayerControl.LocalPlayer.TryGetModifier<AllianceGameModifier>(out var allyMod) && allyMod.GetsPunished))
+        // {
+        //     return false;
+        // }
 
         return true;
     }
@@ -121,7 +127,15 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
 
         if (Player.AmOwner)
         {
-            Player.SpawnAtRandomVent();
+            if ((GhostwalkerVentMode)OptionGroupSingleton<GameMechanicOptions>.Instance.GhostwalkerVentSpawn.Value is
+                GhostwalkerVentMode.Crewmates or GhostwalkerVentMode.All)
+            {
+                Player.VentAtRandomVent();
+            }
+            else
+            {
+                Player.SpawnAtRandomVent();
+            }
             Player.MyPhysics.ResetMoveState();
 
             HudManager.Instance.SetHudActive(false);
@@ -159,88 +173,14 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
         {
             return;
         }
+        FadeUpdate();
+
         if (!_tasksAdded && Player.myTasks != null && Player.myTasks.Count > 0)
         {
             _tasksAdded = AddExtraTasks();
         }
-
-        FadeUpdate();
     }
 
-public void CompleteRandomCrewTask()
-{
-    if (!Player.AmOwner)
-    {
-        return;
-    }
-
-    var crewPlayers = PlayerControl.AllPlayerControls.ToArray().Where(x => 
-        x && x != Player && x.Data != null && x.IsCrewmate() &&
-            opts.MicromanagerManagesCrewTasks switch
-            {
-                MicromanagerRoleCrewType.AliveCrew => !x.Data.IsDead,
-                MicromanagerRoleCrewType.DeadCrew => x.Data.IsDead,
-                MicromanagerRoleCrewType.AnyCrew => true,
-                _ => false
-            }).Where(x => x.myTasks != null && x.myTasks.ToArray().Any(task => task.TryCast<NormalPlayerTask>() != null && !task.IsComplete)).ToList();
-
-    if (crewPlayers.Count == 0)
-    {
-        var warn = Helpers.CreateAndShowNotification(
-        $"There are no more tasks available to manage.",
-        Color.white,
-        new Vector3(0f, 1f, -20f),
-        spr: NullsIcons.Micromanager.LoadAsset());
-
-        warn.AdjustNotification();
-        return;
-    }
-
-    var randomCrew = crewPlayers[UnityEngine.Random.Range(0, crewPlayers.Count)];
-
-    if (randomCrew.myTasks == null || randomCrew.myTasks.Count == 0)
-    {
-        return;
-    }
-
-    var tasks = randomCrew.myTasks.ToArray().Where(x => x.TryCast<NormalPlayerTask>() != null && !x.IsComplete).ToList();
-
-    if (tasks.Count == 0)
-    {
-        return;
-    }
-
-    tasks.Shuffle();
-
-    var randomTask = tasks[0];
-
-    HudManager.Instance.ShowTaskComplete();
-    randomCrew.RpcCompleteTask(randomTask.Id);
-
-    var sb = new StringBuilder();
-    randomTask.AppendTaskText(sb);
-
-    var pattern = @" \(.*?\)";
-    var playerText = randomCrew.Data.PlayerName;
-    var taskText = Regex.Replace(sb.ToString(), pattern, string.Empty);
-
-    var notif = Helpers.CreateAndShowNotification(
-        $"<b>{NullsColors.Micromanager.ToTextColor()}" +
-        $"You completed {playerText}'s {taskText}." +
-        $"</color></b>",
-        Color.white,
-        new Vector3(0f, 1f, -20f),
-        spr: NullsIcons.Micromanager.LoadAsset());
-
-    notif.AdjustNotification();
-
-    var targetMessage =
-        $"<b>{NullsColors.Micromanager.ToTextColor()}" +
-        $"The Micromanager completed the {taskText} task for you." +
-        $"</color></b>";
-
-    MicromanagerEvents.SendMicromanagerNotif(randomCrew, targetMessage);
-}
     public void Clicked()
     {
         var text = $"Clicked MicromanagerRole: '{Player.Data.PlayerName}'";
@@ -254,9 +194,83 @@ public void CompleteRandomCrewTask()
             HudManager.Instance.AbilityButton.SetEnabled();
         }
 
-        GameHistory.UpdatePlayerDeathData(Player, diedThisRound: DeathHandlerOverride.SetFalse);
+        GameHistory.PlayerStats[Player.PlayerId].DiedThisRound = false;
+        // GameHistory.UpdatePlayerDeathData(Player, diedThisRound: DeathHandlerOverride.SetFalse);
     }
 
+
+    public void CompleteRandomCrewTask()
+    {
+        if (!Player.AmOwner)
+        {
+            return;
+        }
+
+        var crewPlayers = PlayerControl.AllPlayerControls.ToArray().Where(x => 
+            x && x != Player && x.Data != null && x.IsCrewmate() &&
+                opts.MicromanagerManagesCrewTasks switch
+                {
+                    MicromanagerRoleCrewType.AliveCrew => !x.Data.IsDead,
+                    MicromanagerRoleCrewType.DeadCrew => x.Data.IsDead,
+                    MicromanagerRoleCrewType.AnyCrew => true,
+                    _ => false
+                }).Where(x => x.myTasks != null && x.myTasks.ToArray().Any(task => task.TryCast<NormalPlayerTask>() != null && !task.IsComplete)).ToList();
+
+        if (crewPlayers.Count == 0)
+        {
+            var warn = Helpers.CreateAndShowNotification(
+            $"There are no more tasks available to manage.",
+            Color.white,
+            new Vector3(0f, 1f, -20f),
+            spr: NullsIcons.Micromanager.LoadAsset());
+
+            warn.AdjustNotification();
+            return;
+        }
+
+        var randomCrew = crewPlayers[UnityEngine.Random.Range(0, crewPlayers.Count)];
+
+        if (randomCrew.myTasks == null || randomCrew.myTasks.Count == 0)
+        {
+            return;
+        }
+
+        var tasks = randomCrew.myTasks.ToArray().Where(x => x.TryCast<NormalPlayerTask>() != null && !x.IsComplete).ToList();
+
+        if (tasks.Count == 0)
+        {
+            return;
+        }
+
+        tasks.Shuffle();
+
+        var randomTask = tasks[0];
+
+        HudManager.Instance.ShowTaskComplete();
+        randomCrew.RpcAddModifier<MicromanagerManageTaskModifier>(randomTask.Id);
+        // randomCrew.RpcCompleteTask(randomTask.Id);
+
+        var sb = new StringBuilder();
+        randomTask.AppendTaskText(sb);
+
+        var pattern = @" \(.*?\)";
+        var playerText = randomCrew.Data.PlayerName;
+        var taskText = Regex.Replace(sb.ToString(), pattern, string.Empty);
+        var microColor = NullsColors.Micromanager;
+
+        var notif = Helpers.CreateAndShowNotification(
+            $"<b>{microColor.ToTextColor()}You completed </color>{TownOfUsColors.Crewmate.ToTextColor()}{playerText}'s</color> {TownOfUsColors.Doomsayer.ToTextColor()}{taskText}</color>. </color></b>",
+            Color.white,
+            new Vector3(0f, 1f, -20f),
+            spr: NullsIcons.Micromanager.LoadAsset());
+
+        notif.AdjustNotification();
+
+        var targetMessage =
+            $"<b>{microColor.ToTextColor()}The Micromanager completed the</color> {TownOfUsColors.Doomsayer.ToTextColor()}{taskText} </color>{microColor.ToTextColor()}task for you.</color></b>";
+
+        MicromanagerEvents.SendMicromanagerNotif(randomCrew, targetMessage);
+    }
     public override void Initialize(PlayerControl player)
     {
         RoleBehaviourStubs.Initialize(this, player);
@@ -267,11 +281,7 @@ public void CompleteRandomCrewTask()
         }
         if (TutorialManager.InstanceExists)
         {
-            Setup = false;
-            Caught = false;
-            Faded = false;
-            _tasksAdded = false;
-            TaskStage = GhostTaskStage.Unclickable;
+            Setup = true;
 
             if (HudManagerPatches.CamouflageCommsEnabled)
             {
@@ -316,7 +326,6 @@ public void CompleteRandomCrewTask()
 
         var toAdd = new List<NormalPlayerTask>();
 
-        // Temporary changes
         for (int i = 0; i < (int)opts.ExtraCommonTasks; i++)
             toAdd.Add(commonTasks[UnityEngine.Random.Range(0, commonTasks.Length)]);
 
@@ -397,15 +406,15 @@ public void CompleteRandomCrewTask()
 
         GetTaskCounts(Player, out var completedTasks, out var totalTasks);
         var tasksRemaining = totalTasks - completedTasks;
-
         var clickableAt = (int)opts.NumTasksLeftBeforeClickable;
 
         GhostTaskStage newStage;
-        if (totalTasks > 0 && completedTasks == totalTasks)
-        {
-            newStage = GhostTaskStage.CompletedTasks;
-        }
-        else if (tasksRemaining <= clickableAt)
+        // if (totalTasks > 0 && completedTasks == totalTasks)
+        // {
+        //     newStage = GhostTaskStage.CompletedTasks;
+        // }
+        // else if
+        if (tasksRemaining <= clickableAt)
         {
             newStage = GhostTaskStage.Clickable;
         }
@@ -416,8 +425,8 @@ public void CompleteRandomCrewTask()
 
         if (!forceRecalculate)
         {
-            if ((TaskStage is not GhostTaskStage.Clickable && newStage is GhostTaskStage.Clickable) || 
-            (!CompletedAllTasks && newStage is GhostTaskStage.CompletedTasks))
+            if (TaskStage is not GhostTaskStage.Clickable && newStage is GhostTaskStage.Clickable)
+                // || (!CompletedAllTasks && newStage is GhostTaskStage.CompletedTasks))
             {
                 TaskStage = newStage;
                 HandleStageChange(newStage, silent);
@@ -458,16 +467,16 @@ public void CompleteRandomCrewTask()
                 notif1.AdjustNotification();
             }
         }
-        else if (stage is GhostTaskStage.CompletedTasks)
-        {
-            foreach (var player in PlayerControl.AllPlayerControls)
-            {
-                if (player == null)
-                {
-                    continue;
-                }
-            }
-        }
+        // else if (stage is GhostTaskStage.CompletedTasks)
+        // {
+        //     foreach (var player in PlayerControl.AllPlayerControls)
+        //     {
+        //         if (player == null)
+        //         {
+        //             continue;
+        //         }
+        //     }
+        // }
     }
 
     private static void GetTaskCounts(PlayerControl player, out int completed, out int total)

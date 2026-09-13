@@ -40,6 +40,7 @@ public sealed class MorticianRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
     };
 
     public string RoleDescription => "Reveal the dead to gain extra info!";
+    public string RoleMedDescriptionLocale => "";
     public string RoleLongDescription => 
         $"Reveal dead roles to everyone, and report bodies to figure out the killer.\n" +
         $"Autopsy Uses: <color=#{ColorUtility.ToHtmlStringRGBA(NullsColors.Mortician)}>{AbilityUses}</color>";

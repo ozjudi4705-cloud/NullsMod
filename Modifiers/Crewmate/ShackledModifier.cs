@@ -28,6 +28,8 @@ public sealed class ShackledModifier : UniversalGameModifier, IWikiDiscoverable
         " your killer to drag your dead body along with them for a specified duration." +
         MiscUtils.AppendOptionsText(GetType());
     }
+    public string RoleMedDescriptionLocale => "";
+
 
     public override LoadableAsset<Sprite>? ModifierIcon => NullsIcons.Shackled;
 

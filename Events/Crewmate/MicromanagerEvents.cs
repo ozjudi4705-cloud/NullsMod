@@ -61,9 +61,7 @@ public static class MicromanagerEvents
     }
 
     [MethodRpc(9102)]
-    private static void RpcMicromanagerNotifyTarget(
-        PlayerControl sender,
-        string message)
+    private static void RpcMicromanagerNotifyTarget(PlayerControl sender, string message)
     {
         if (sender == null || sender.OwnerId != AmongUsClient.Instance.ClientId ||
             string.IsNullOrEmpty(message))
