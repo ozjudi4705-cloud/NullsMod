@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HarmonyLib;
+using System.Collections;
 using System.Text.RegularExpressions;
 using Il2CppSystem.Text;
 using UnityEngine;
@@ -57,7 +58,7 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
         CanUseVent = false,
         GetsVentData = true,
         ShowInFreeplay = true,
-        GhostRole = RoleTypes.CrewmateGhost
+        // GhostRole = RoleTypes.CrewmateGhost
     };
 
     private bool _tasksAdded;
@@ -73,6 +74,41 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
             MiscUtils.AppendOptionsText(GetType());
     }
 
+    [HarmonyPatch(typeof(GhostRoleEvents), nameof(GhostRoleEvents.CoSetGhostwalkers))]
+    public static class GhostwalkerPatch
+    {
+        public static void Postfix(PlayerControl? exiled)
+        {
+            var microData = MiscUtils.GetAssignData((RoleTypes)RoleId.Get<MicromanagerRole>());
+            Warning($"MicromanagerData={microData}");
+
+            if (CustomRoleUtils.GetActiveRoles().OfType<MicromanagerRole>().Count() < microData.Count)
+            {
+                var isSkipped = microData.Chance < 100 && HashRandom.Next(101) > microData.Chance;
+                Warning($"MicromanagerRoleChance={microData.Chance}");
+                if (!isSkipped)
+                {
+                    var deadCrew = PlayerControl.AllPlayerControls.ToArray().Where(x =>
+                        (x.Data.IsDead || x == exiled) && x.GetRoleWhenAlive().IsCrewmate() && !x.HasModifier<AllianceGameModifier>() &&
+                        x.CanGetGhostRole() &&
+                        x.Data.Role).ToList();
+                        Warning($"MicromanagerDeadCrew={deadCrew}");
+
+
+                    if (deadCrew.Count > 0)
+                    {
+                        deadCrew.Shuffle();
+
+                        var player = deadCrew.TakeFirst();
+                        Warning($"MicromanagerPlayer={player}");
+
+                        player?.RpcChangeRole(RoleId.Get<MicromanagerRole>());
+                    }
+                }
+            }
+        }
+    }
+    
     public bool CanBeClicked
     {
         get
@@ -88,21 +124,20 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
 
     public GhostTaskStage TaskStage { get; private set; } = GhostTaskStage.Unclickable;
     public bool GhostActive => Setup && !Caught;
-
     public bool CanCatch()
     {
-        // if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.ImpsOnly &&
-        //     !PlayerControl.LocalPlayer.IsImpostorAligned())
-        // {
-        //     return false;
-        // }
+        if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.ImpsOnly &&
+            !PlayerControl.LocalPlayer.IsImpostorAligned())
+        {
+            return false;
+        }
 
-        // if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.NonCrew &&
-        //     !(PlayerControl.LocalPlayer.IsImpostorAligned() || PlayerControl.LocalPlayer.Is(RoleAlignment.NeutralKilling)
-        //     || PlayerControl.LocalPlayer.TryGetModifier<AllianceGameModifier>(out var allyMod) && allyMod.GetsPunished))
-        // {
-        //     return false;
-        // }
+        if (opts.MicromanagerCanBeClickedBy == MicromanagerRoleClickableType.NonCrew &&
+            !(PlayerControl.LocalPlayer.IsImpostorAligned() || PlayerControl.LocalPlayer.Is(RoleAlignment.NeutralKilling)
+            || PlayerControl.LocalPlayer.TryGetModifier<AllianceGameModifier>(out var allyMod) && allyMod.GetsPunished))
+        {
+            return false;
+        }
 
         return true;
     }
@@ -124,6 +159,12 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
         Player.gameObject.GetComponent<PassiveButton>().OnClick = new Button.ButtonClickedEvent();
         Player.gameObject.GetComponent<PassiveButton>().OnClick.AddListener((Action)(() => Player.OnClick()));
         Player.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+        var collider = Player.Collider;
+        collider.enabled = true;
+
+        MiscUtils.LogInfo(TownOfUsEventHandlers.LogLevel.Error,
+        $"Micromanager Spawn: Player.Collider enabled={collider.enabled}");
 
         if (Player.AmOwner)
         {
@@ -179,6 +220,8 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
         {
             _tasksAdded = AddExtraTasks();
         }
+
+        CheckTaskRequirements();
     }
 
     public void Clicked()
@@ -195,7 +238,6 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
         }
 
         GameHistory.PlayerStats[Player.PlayerId].DiedThisRound = false;
-        // GameHistory.UpdatePlayerDeathData(Player, diedThisRound: DeathHandlerOverride.SetFalse);
     }
 
 

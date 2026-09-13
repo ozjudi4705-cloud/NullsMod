@@ -28,7 +28,7 @@ public static class MicromanagerEvents
             return;
         }
 
-        micromanagerRole.CheckTaskRequirements();
+        // micromanagerRole.CheckTaskRequirements();
         ++micromanagerRole.managedTaskProgression;
 
         if (micromanagerRole.managedTaskProgression >=
