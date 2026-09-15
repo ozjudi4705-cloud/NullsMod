@@ -65,7 +65,7 @@ public sealed class MicromanagerRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr),
 
     public string RoleDescription => "You must Manage everyone's tasks!";
     public string RoleLongDescription => "Manage the Crew's tasks and complete their tasks for them.";
-    public string RoleMedDescriptionLocale => "";
+    public string RoleMedDescriptionLocale => "Complete tasks for other players.";
     public string GetAdvancedDescription()
     {
         return

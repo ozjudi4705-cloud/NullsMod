@@ -25,7 +25,7 @@ public sealed class WorkaholicRole(IntPtr cppPtr)
     : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IProgressTally, IUnlovable, IUnguessable
 {
 
-    public string LocaleKey => "Workaholic";
+    // public string LocaleKey => "Workaholic";
     public string RoleName => "Workaholic";
     public bool IsUnlovable => true;
     // public bool IsDraftable => true;
@@ -47,7 +47,7 @@ public sealed class WorkaholicRole(IntPtr cppPtr)
     public string RoleLongDescription => options.WorkRevealed
         ? "You are revealed. Finish your extra tasks while alive and/or dead to win !"
         : "You are hidden. Finish your extra tasks while alive to win !";
-    public string RoleMedDescriptionLocale => "";
+    public string RoleMedDescriptionLocale => "Complete your tasks to end the game !";
     public string GetAdvancedDescription() =>(options.WorkRevealed
         ? "You are revealed, everyone will know your role and task progression, and " +
         "when you finish your tasks you end the game, even after you die."
