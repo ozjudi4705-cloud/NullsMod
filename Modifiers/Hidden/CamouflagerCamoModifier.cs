@@ -6,6 +6,7 @@ using TownOfUs.Modifiers;
 using TownOfUs.Utilities.Appearances;
 using UnityEngine;
 using NullsMod.Options.Roles.Impostor;
+using NullsMod.Roles.Impostor;
 
 namespace NullsMod.Modifiers.Hidden;
 
@@ -27,9 +28,17 @@ public sealed class CamouflagerCamoModifier : ConcealedModifier, IVisualAppearan
         appearance.HatId = "hat_NoHat";
         appearance.SkinId = "skin_None";
         appearance.VisorId = "visor_EmptyVisor";
-        appearance.PlayerName = string.Empty;
         appearance.PetId = "pet_EmptyPet";
-        appearance.NameVisible = false;
+        if (PlayerControl.LocalPlayer.Data.Role is CamouflagerRole && OptionGroupSingleton<CamouflagerOptions>.Instance.CamoVision)
+        {
+            appearance.PlayerName = Player.Data.PlayerName;
+            appearance.NameVisible = true;
+        }
+        else
+        {
+            appearance.PlayerName = string.Empty;
+            appearance.NameVisible = false;
+        }
         appearance.PlayerMaterialColor = Color.grey;
         return appearance;
     }

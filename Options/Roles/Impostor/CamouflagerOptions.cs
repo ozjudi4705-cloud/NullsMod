@@ -12,9 +12,9 @@ public sealed class CamouflagerOptions : AbstractRoleOptionGroup<CamouflagerRole
     [ModdedNumberOption("Ability Cooldown", 5f, 120f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float CamoCooldown { get; set; } = 25f;
 
-    [ModdedNumberOption("Ability Duration", 5f, 25f, suffixType: MiraNumberSuffixes.Seconds)]
-    public float CamoDuration { get; set; } = 15f;
+    [ModdedNumberOption("Ability Duration", 5f, 60f, 2.5f, MiraNumberSuffixes.Seconds)]
+    public float CamoDuration { get; set; } = 20f;
 
-    // [ModdedToggleOption("Passive Camo Vision")]
-    // public bool CamoVision { get; set; } = true;
+    [ModdedToggleOption("Passive Camo Vision")]
+    public bool CamoVision { get; set; } = true;
 }
