@@ -8,7 +8,7 @@ using TownOfUs.Utilities;
 using TownOfUs;
 using UnityEngine;
 using NullsMod.Assets;
-using NullsMod.Modifiers.Game.Crewmate;
+using NullsMod.Modifiers.Universal;
 using NullsMod.Modifiers.Hidden;
 
 namespace NullsMod.Events.Modifiers;
@@ -21,9 +21,7 @@ public static class ShackledEvents
         var source = @event.Source;
         var target = @event.Target;
 
-        if (!target.HasModifier<ShackledModifier>() ||
-            !source.AmOwner ||
-            MeetingHud.Instance)
+        if (!target.HasModifier<ShackledModifier>() || !source.AmOwner || MeetingHud.Instance || target.HasDied())
         {
             return;
         }

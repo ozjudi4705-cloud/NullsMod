@@ -8,7 +8,7 @@ using UnityEngine;
 using NullsMod.Assets;
 using NullsMod.Options.Modifiers;
 
-namespace NullsMod.Modifiers.Game.Crewmate;
+namespace NullsMod.Modifiers.Universal;
 
 public sealed class ShackledModifier : UniversalGameModifier, IWikiDiscoverable
 {
@@ -28,7 +28,7 @@ public sealed class ShackledModifier : UniversalGameModifier, IWikiDiscoverable
         " your killer to drag your dead body along with them for a specified duration." +
         MiscUtils.AppendOptionsText(GetType());
     }
-    public string RoleMedDescriptionLocale => "";
+    public string RoleMedDescriptionLocale => "Shackle your killer, Chaining them to your dead body !";
 
 
     public override LoadableAsset<Sprite>? ModifierIcon => NullsIcons.Shackled;

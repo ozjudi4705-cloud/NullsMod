@@ -2,7 +2,7 @@
 using MiraAPI.GameOptions.Attributes;
 using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
-using NullsMod.Modifiers.Game.Crewmate;
+using NullsMod.Modifiers.Universal;
 
 namespace NullsMod.Options.Modifiers;
 
