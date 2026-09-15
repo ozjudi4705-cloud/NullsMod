@@ -24,12 +24,11 @@ public sealed class ShackledModifier : UniversalGameModifier, IWikiDiscoverable
 
     public string GetAdvancedDescription()
     {
-        return "The Shackled Modifier is a Universal Postmortem modifier that causes" +
-        " your killer to drag your dead body along with them for a specified duration." +
+        return "The Shackled Modifier is a Universal Postmortem modifier that causes " +
+        "your killer to drag your dead body along with them for a specified duration." +
         MiscUtils.AppendOptionsText(GetType());
     }
     public string RoleMedDescriptionLocale => "Shackle your killer, Chaining them to your dead body !";
-
 
     public override LoadableAsset<Sprite>? ModifierIcon => NullsIcons.Shackled;
 

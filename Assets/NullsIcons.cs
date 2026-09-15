@@ -16,6 +16,6 @@ public static class NullsIcons
     public static LoadableAsset<Sprite> MorticianAbility { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.MorticianAbility.png", 200);
     public static LoadableAsset<Sprite> Camouflager { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Camouflager.png", 200);
     public static LoadableAsset<Sprite> CamouflagerButton { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.CamouflagerButton.png", 200);
-    public static LoadableAsset<Sprite> Exposed { get; } = new LoadableResourceAsset($"{ShortPath}/RoleIcons.Exposed.png", 200);
+    public static LoadableAsset<Sprite> Exposed { get; } = new LoadableResourceAsset($"{ShortPath}.RoleIcons.Exposed.png", 200);
 
 }

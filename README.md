@@ -23,6 +23,7 @@
 - I added Workaholic Neutral Evil role
 - I added Shackled Universal Postmortem modifier
 - I added Mortician Crewmate Support role
+- I added Exposed Universal Visibility modifier 
 
 -----------------------
 
