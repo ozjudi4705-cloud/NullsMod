@@ -24,6 +24,7 @@
 - I added Shackled Universal Postmortem modifier
 - I added Mortician Crewmate Support role
 - I added Exposed Universal Visibility modifier 
+- I added Battery Universal Utility modifier 
 
 -----------------------
 

@@ -25,10 +25,10 @@ public sealed class BatteryModifier : UniversalGameModifier, IWikiDiscoverable
     public string GetAdvancedDescription()
     {
         return "The Battery is a Universal Utility modifier that lets you see" +
-        "Utility info(Admin table, Cameras, Vitals and Hq Logs during comms sabotage)" +
+        "Utility info(Admin table, Cameras, Vitals and Hq Logs) during comms sabotage" +
         MiscUtils.AppendOptionsText(GetType());
     }
-    public string RoleMedDescriptionLocale => "Lets you use Utilities during Comms Disabled sabotage";
+    public string RoleMedDescriptionLocale() => "Lets you use Utilities during Comms Disabled sabotage";
 
     public override LoadableAsset<Sprite>? ModifierIcon => NullsIcons.Battery;
 
